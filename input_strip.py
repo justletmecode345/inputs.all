@@ -1,4 +1,4 @@
-# Tracks input history for `inputs.ask()`, `inputs.all`, and `inputs.any`.
+# Tracks input history for `inputs.ask()`, `inputs.all`, and `inputs.any` (strip version)
 class _InputMatcher:
     def __init__(self, history, match_all):
         self.history = history
