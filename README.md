@@ -1,5 +1,3 @@
-# NOTE: Ignore the smartInputs folder, nested clone slipped through while committing. Will remove soon...
-
 # smartInputs project
 
 A clean Python tool to check multiple console text inputs instantly without messy daisy chains.
