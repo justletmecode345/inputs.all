@@ -1,44 +1,16 @@
-# .lower() version of "inputs_tracker.py"
-class _InputMatcher:
-    def __init__(self, history, match_all):
-        self.history = history
-        self.match_all = match_all
+from inputs_lower import InputsTracker
+inputs = InputsTracker()
 
-    def __eq__(self, value):
-        if not self.history:
-            return False
+while True:
+    user_input1 = inputs.ask("Type anything ('exit' to quit): ")
+    user_input2 = inputs.ask("Type anything ('exit' to quit): ")
+    if inputs.any == "exit":
+        break
 
-        if self.match_all:
-            return all(answer.lower() == value.lower() for answer in self.history)
-        return any(answer.lower() == value.lower() for answer in self.history)
+    elif inputs.all == "test":
+        print("All inputs were 'test'")
 
-class InputsTracker:
-    def __init__(self):
-        self.history = []
+    else:
+        print("Random else statement hit")
 
-    def ask(self, prompt_text):
-        try:
-            answer = input(prompt_text)
-            self.history.append(answer)
-            return answer
-
-        except KeyboardInterrupt:
-            print("Dont interrupt the keyboard by Crtl + C!")
-            return None
-
-    def reset(self):
-        self.history.clear()
-
-    @property
-    def all(self):
-        return _InputMatcher(self.history, match_all=True)
-
-    @property
-    def any(self):
-        return _InputMatcher(self.history, match_all=False)
-        if not self.history:
-            return False
-
-        if self.match_all:
-            return all(answer.lower() == value.lower() for answer in self.history)
-        return any(answer.lower() == value.lower() for answer in self.history)
+    inputs.reset()
